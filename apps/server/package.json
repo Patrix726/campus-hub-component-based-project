@@ -10,9 +10,9 @@
     "start": "node dist/index.mjs"
   },
   "dependencies": {
-    "@campus-hub-component-based-project/auth": "workspace:*",
-    "@campus-hub-component-based-project/db": "workspace:*",
-    "@campus-hub-component-based-project/env": "workspace:*",
+    "@repo/auth": "workspace:*",
+    "@repo/db": "workspace:*",
+    "@repo/env": "workspace:*",
     "better-auth": "catalog:",
     "cors": "^2.8.5",
     "dotenv": "catalog:",
@@ -20,7 +20,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@campus-hub-component-based-project/config": "workspace:*",
+    "@repo/config": "workspace:*",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/node": "^22.13.14",

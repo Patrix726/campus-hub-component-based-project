@@ -1,5 +1,5 @@
 {
-  "name": "@campus-hub-component-based-project/auth",
+  "name": "@repo/auth",
   "type": "module",
   "exports": {
     ".": {
@@ -11,14 +11,14 @@
   },
   "scripts": {},
   "dependencies": {
-    "@campus-hub-component-based-project/db": "workspace:*",
-    "@campus-hub-component-based-project/env": "workspace:*",
+    "@repo/db": "workspace:*",
+    "@repo/env": "workspace:*",
     "better-auth": "catalog:",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@campus-hub-component-based-project/config": "workspace:*",
+    "@repo/config": "workspace:*",
     "typescript": "catalog:"
   }
 }

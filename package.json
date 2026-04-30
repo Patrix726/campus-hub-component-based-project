@@ -12,19 +12,19 @@
     "check-types": "turbo check-types",
     "dev:web": "turbo -F web dev",
     "dev:server": "turbo -F server dev",
-    "db:push": "turbo -F @campus-hub-component-based-project/db db:push",
-    "db:studio": "turbo -F @campus-hub-component-based-project/db db:studio",
-    "db:generate": "turbo -F @campus-hub-component-based-project/db db:generate",
-    "db:migrate": "turbo -F @campus-hub-component-based-project/db db:migrate",
-    "db:local": "turbo -F @campus-hub-component-based-project/db db:local"
+    "db:push": "turbo -F @repo/db db:push",
+    "db:studio": "turbo -F @repo/db db:studio",
+    "db:generate": "turbo -F @repo/db db:generate",
+    "db:migrate": "turbo -F @repo/db db:migrate",
+    "db:local": "turbo -F @repo/db db:local"
   },
   "dependencies": {
-    "@campus-hub-component-based-project/env": "workspace:*",
+    "@repo/env": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@campus-hub-component-based-project/config": "workspace:*",
+    "@repo/config": "workspace:*",
     "@types/node": "^22.13.14",
     "turbo": "^2.8.12",
     "typescript": "catalog:"

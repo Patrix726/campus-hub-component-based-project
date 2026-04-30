@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@campus-hub-component-based-project/auth": "workspace:*",
-    "@campus-hub-component-based-project/env": "workspace:*",
-    "@campus-hub-component-based-project/ui": "workspace:*",
+    "@repo/auth": "workspace:*",
+    "@repo/env": "workspace:*",
+    "@repo/ui": "workspace:*",
     "@prisma/client": "catalog:",
     "@tanstack/react-form": "^1.28.0",
     "babel-plugin-react-compiler": "^1.0.0",
@@ -25,7 +25,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@campus-hub-component-based-project/config": "workspace:*",
+    "@repo/config": "workspace:*",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20",
     "@types/react": "catalog:",

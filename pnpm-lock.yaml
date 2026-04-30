@@ -50,7 +50,7 @@ importers:
 
   .:
     dependencies:
-      '@campus-hub-component-based-project/env':
+      '@repo/env':
         specifier: workspace:*
         version: link:packages/env
       dotenv:
@@ -60,7 +60,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.1
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:packages/config
       '@types/node':
@@ -75,13 +75,13 @@ importers:
 
   apps/server:
     dependencies:
-      '@campus-hub-component-based-project/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@campus-hub-component-based-project/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@campus-hub-component-based-project/env':
+      '@repo/env':
         specifier: workspace:*
         version: link:../../packages/env
       better-auth:
@@ -100,7 +100,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.1
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:../../packages/config
       '@types/cors':
@@ -124,13 +124,13 @@ importers:
 
   apps/web:
     dependencies:
-      '@campus-hub-component-based-project/auth':
+      '@repo/auth':
         specifier: workspace:*
         version: link:../../packages/auth
-      '@campus-hub-component-based-project/env':
+      '@repo/env':
         specifier: workspace:*
         version: link:../../packages/env
-      '@campus-hub-component-based-project/ui':
+      '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       '@prisma/client':
@@ -170,7 +170,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.1
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:../../packages/config
       '@tailwindcss/postcss':
@@ -194,10 +194,10 @@ importers:
 
   packages/auth:
     dependencies:
-      '@campus-hub-component-based-project/db':
+      '@repo/db':
         specifier: workspace:*
         version: link:../db
-      '@campus-hub-component-based-project/env':
+      '@repo/env':
         specifier: workspace:*
         version: link:../env
       better-auth:
@@ -210,7 +210,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.1
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:../config
       typescript:
@@ -221,7 +221,7 @@ importers:
 
   packages/db:
     dependencies:
-      '@campus-hub-component-based-project/env':
+      '@repo/env':
         specifier: workspace:*
         version: link:../env
       '@prisma/adapter-libsql':
@@ -237,7 +237,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.1
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:../config
       prisma:
@@ -262,7 +262,7 @@ importers:
         specifier: 'catalog:'
         version: 4.4.1
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:../config
       '@types/node':
@@ -308,7 +308,7 @@ importers:
         specifier: ^1.3.4
         version: 1.4.0
     devDependencies:
-      '@campus-hub-component-based-project/config':
+      '@repo/config':
         specifier: workspace:*
         version: link:../config
       '@types/react':

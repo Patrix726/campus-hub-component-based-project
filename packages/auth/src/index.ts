@@ -1,5 +1,5 @@
-import { createPrismaClient } from "@campus-hub-component-based-project/db";
-import { env } from "@campus-hub-component-based-project/env/server";
+import { createPrismaClient } from "@repo/db";
+import { env } from "@repo/env/server";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 
