@@ -1,4 +1,4 @@
-import { env } from "@campus-hub-component-based-project/env/server";
+import { env } from "@repo/env/server";
 import { PrismaLibSql } from "@prisma/adapter-libsql";
 
 import { PrismaClient } from "../prisma/generated/client";

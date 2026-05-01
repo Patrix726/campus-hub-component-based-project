@@ -1,5 +1,5 @@
-import { auth } from "@campus-hub-component-based-project/auth";
-import { env } from "@campus-hub-component-based-project/env/server";
+import { auth } from "@repo/auth";
+import { env } from "@repo/env/server";
 import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
 import express from "express";

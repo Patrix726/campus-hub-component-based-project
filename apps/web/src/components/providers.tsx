@@ -1,6 +1,6 @@
 "use client";
 
-import { Toaster } from "@campus-hub-component-based-project/ui/components/sonner";
+import { Toaster } from "@repo/ui/components/sonner";
 
 import { ThemeProvider } from "./theme-provider";
 

@@ -1,6 +1,6 @@
-import { Button } from "@campus-hub-component-based-project/ui/components/button";
-import { Input } from "@campus-hub-component-based-project/ui/components/input";
-import { Label } from "@campus-hub-component-based-project/ui/components/label";
+import { Button } from "@repo/ui/components/button";
+import { Input } from "@repo/ui/components/input";
+import { Label } from "@repo/ui/components/label";
 import { useForm } from "@tanstack/react-form";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";

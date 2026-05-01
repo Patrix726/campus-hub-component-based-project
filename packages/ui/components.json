@@ -12,11 +12,11 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@campus-hub-component-based-project/ui/components",
-    "utils": "@campus-hub-component-based-project/ui/lib/utils",
-    "hooks": "@campus-hub-component-based-project/ui/hooks",
-    "lib": "@campus-hub-component-based-project/ui/lib",
-    "ui": "@campus-hub-component-based-project/ui/components"
+    "components": "@repo/ui/components",
+    "utils": "@repo/ui/lib/utils",
+    "hooks": "@repo/ui/hooks",
+    "lib": "@repo/ui/lib",
+    "ui": "@repo/ui/components"
   },
   "menuColor": "default",
   "menuAccent": "subtle",

@@ -1,5 +1,5 @@
 {
-  "name": "@campus-hub-component-based-project/env",
+  "name": "@repo/env",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@campus-hub-component-based-project/config": "workspace:*",
+    "@repo/config": "workspace:*",
     "@types/node": "^22.13.14",
     "typescript": "catalog:"
   }
