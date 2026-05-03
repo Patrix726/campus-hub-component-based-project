@@ -355,6 +355,15 @@ importers:
         specifier: 'catalog:'
         version: 6.0.3
 
+  packages/types:
+    devDependencies:
+      '@repo/config':
+        specifier: workspace:*
+        version: link:../config
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+
   packages/ui:
     dependencies:
       '@base-ui/react':
@@ -403,6 +412,15 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 4.2.4
+      typescript:
+        specifier: 'catalog:'
+        version: 6.0.3
+
+  packages/utils:
+    devDependencies:
+      '@repo/config':
+        specifier: workspace:*
+        version: link:../config
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
