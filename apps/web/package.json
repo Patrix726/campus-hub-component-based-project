@@ -13,6 +13,7 @@
     "@repo/ui": "workspace:*",
     "@repo/feature-user-profiles": "workspace:*",
     "@repo/feature-auth": "workspace:*",
+    "@repo/feature-events": "workspace:*",
     "@prisma/client": "catalog:",
     "@tanstack/react-form": "^1.28.0",
     "babel-plugin-react-compiler": "^1.0.0",

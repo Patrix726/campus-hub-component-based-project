@@ -9,6 +9,8 @@ model User {
   sessions      Session[]
   accounts      Account[]
   profile       Profile?
+  events        Event[]
+  eventRsvps    EventRsvp[]
 
   @@unique([email])
   @@map("user")

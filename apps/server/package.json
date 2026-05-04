@@ -12,6 +12,7 @@
   "dependencies": {
     "@repo/feature-auth": "workspace:*",
     "@repo/feature-user-profiles": "workspace:*",
+    "@repo/feature-events": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/env": "workspace:*",
