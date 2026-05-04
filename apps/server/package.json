@@ -12,6 +12,9 @@
   "dependencies": {
     "@repo/feature-auth": "workspace:*",
     "@repo/feature-user-profiles": "workspace:*",
+    "@repo/feature-chat": "workspace:*",
+    "@repo/feature-notifications": "workspace:*",
+    "@repo/realtime": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/env": "workspace:*",

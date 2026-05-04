@@ -1,0 +1,22 @@
+{
+  "name": "@repo/realtime",
+  "type": "module",
+  "exports": {
+    ".":      { "default": "./src/index.ts" },
+    "./server": { "default": "./src/server.ts" },
+    "./client": { "default": "./src/client.ts" }
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "ws": "^8.18.0",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "@types/ws": "^8.18.0",
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}
