@@ -23,7 +23,7 @@ export function RealtimeProvider({ url, userId, children }: RealtimeProviderProp
   const wsRef = useRef<WebSocket | null>(null);
   const listenersRef = useRef<Map<string, Set<EventHandler>>>(new Map());
   const [isConnected, setIsConnected] = useState(false);
-  const reconnectTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const reconnectTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const connect = useCallback(() => {
     if (wsRef.current?.readyState === WebSocket.OPEN) return;

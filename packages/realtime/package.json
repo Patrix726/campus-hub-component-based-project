@@ -4,7 +4,7 @@
   "exports": {
     ".":      { "default": "./src/index.ts" },
     "./server": { "default": "./src/server.ts" },
-    "./client": { "default": "./src/client.ts" }
+    "./client": { "default": "./src/client.tsx" }
   },
   "scripts": {
     "build": "tsc -b"

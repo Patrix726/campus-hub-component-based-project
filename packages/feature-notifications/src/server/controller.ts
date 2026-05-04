@@ -29,7 +29,7 @@ export async function markAsRead(req: Request, res: Response) {
     const { id } = req.params;
     if (!id) return res.status(400).json({ error: "Notification ID required" });
 
-    const notification = await notificationService.markAsRead(id, userId);
+    const notification = await notificationService.markAsRead(id as string, userId);
     res.json(notification);
   } catch (error) {
     console.error("markAsRead error:", error);

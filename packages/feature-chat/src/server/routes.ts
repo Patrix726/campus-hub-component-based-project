@@ -1,7 +1,7 @@
-import { Router } from "express";
+import { Router, type Router as RouterType } from "express";
 import * as controller from "./controller";
 
-const router = Router();
+const router: RouterType = Router();
 
 router.get("/api/chat", controller.listChats);
 router.post("/api/chat", controller.createChat);

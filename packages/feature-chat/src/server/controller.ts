@@ -56,7 +56,7 @@ export async function getMessages(req: Request, res: Response) {
     const userId = req.query.userId as string;
     if (!userId) return res.status(400).json({ error: "userId required" });
 
-    const { id } = req.params;
+    const id = req.params.id as string;
     if (!id) return res.status(400).json({ error: "Chat ID required" });
 
     // Verify membership
@@ -80,7 +80,7 @@ export async function sendMessage(req: Request, res: Response) {
     const userId = req.query.userId as string;
     if (!userId) return res.status(400).json({ error: "userId required" });
 
-    const { id: chatId } = req.params;
+    const chatId = req.params.id as string;
     if (!chatId) return res.status(400).json({ error: "Chat ID required" });
 
     // Verify membership

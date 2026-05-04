@@ -13,7 +13,7 @@ interface MessageInputProps {
 export function MessageInput({ onSend, onTyping, disabled }: MessageInputProps) {
   const [content, setContent] = useState("");
   const [sending, setSending] = useState(false);
-  const typingTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const typingTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@repo/ui/components/card";
 import { Skeleton } from "@repo/ui/components/skeleton";
 import { truncate } from "@repo/utils";
 import { useChats } from "./useChats";
