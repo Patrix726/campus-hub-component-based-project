@@ -27,36 +27,36 @@ A fullstack monorepo built with **Turborepo**, **Next.js**, **Express**, **Prism
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                              MONOREPO (Turborepo)                            │
+│                              MONOREPO (Turborepo)                           │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  apps/web  (Next.js 16)                                                     │
 │  ├── SSR pages, client pages, shared layout                                 │
 │  ├── Uses @repo/feature-*/client components                                 │
 │  ├── Uses @repo/realtime/client for WebSocket                               │
-│  └── Proxies auth, profile, chat, notification API calls                  │
-│                                                                              │
+│  └── Proxies auth, profile, chat, notification API calls                    │
+│                                                                             │
 │  apps/server  (Express 5)                                                   │
 │  ├── Mounts feature server routes (@repo/feature-*/server)                  │
 │  ├── Mounts Better-Auth handler (@repo/auth)                                │
-│  ├── Initializes WebSocket server (@repo/realtime/server)                    │
+│  ├── Initializes WebSocket server (@repo/realtime/server)                   │
 │  └── Registers cross-feature event listeners                                │
-│                                                                              │
+│                                                                             │
 │  packages/feature-*                                                         │
 │  ├─ client/   React hooks & UI components                                   │
-│  ├─ server/   Express routers, controllers, services, realtime handlers    │
-│  ├─ shared/   Types, Zod schemas, constants                                   │
+│  ├─ server/   Express routers, controllers, services, realtime handlers     │
+│  ├─ shared/   Types, Zod schemas, constants                                 │
 │  └─ package.json exports: . /client /server /shared                         │
-│                                                                              │
+│                                                                             │
 │  packages/realtime                                                          │
 │  ├─ server/   WebSocketServer singleton + internal EventBus                 │
-│  └─ client/   React Context + useRealtimeEvent hook                          │
-│                                                                              │
+│  └─ client/   React Context + useRealtimeEvent hook                         │
+│                                                                             │
 │  packages/auth     Better-Auth configuration (Prisma adapter)               │
-│  packages/db       Prisma Client + SQLite/LibSQL adapter                     │
-│  packages/env      T3-env validated env vars (server + web)                  │
-│  packages/types    Shared API response / pagination types                    │
-│  packages/utils    Date, string, array, validation helpers                   │
-│  packages/ui       shadcn/ui primitives (Button, Card, Input, etc.)          │
+│  packages/db       Prisma Client + SQLite/LibSQL adapter                    │
+│  packages/env      T3-env validated env vars (server + web)                 │
+│  packages/types    Shared API response / pagination types                   │
+│  packages/utils    Date, string, array, validation helpers                  │
+│  packages/ui       shadcn/ui primitives (Button, Card, Input, etc.)         │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
