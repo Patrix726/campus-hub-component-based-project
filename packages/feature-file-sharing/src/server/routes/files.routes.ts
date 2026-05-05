@@ -22,7 +22,7 @@ const upload = multer({
   },
 });
 
-const router = Router();
+const router: Router = Router();
 
 router.get("/api/files", filesController.list);
 router.get("/api/files/:id", filesController.getOne);

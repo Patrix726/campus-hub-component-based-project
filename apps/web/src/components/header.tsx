@@ -31,6 +31,7 @@ export default function Header() {
             {links.map(({ to, label }) => (
               <Link
                 key={to}
+                // @ts-expect-error some links aren't existing
                 href={to}
                 className="text-gray-700 hover:text-amber-600 font-medium transition-colors duration-200 hover:scale-105 transform"
               >

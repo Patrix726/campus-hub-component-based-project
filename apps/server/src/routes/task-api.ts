@@ -1,14 +1,16 @@
 // apps/server/src/routes/tasks.ts
 import { Router } from "express";
-import { db } from "@campus-hub/db";
-import { auth } from "@campus-hub/auth";
+import { createPrismaClient } from "@repo/db";
+import { auth } from "@repo/auth";
+import { requireAuth } from "@/middleware/auth";
 
 const router = Router();
+const db = createPrismaClient()
 
 // Get all tasks for the authenticated user
-router.get("/", auth, async (req, res) => {
+router.get("/", requireAuth, async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.locals.userId;
     const { status, priority, sortBy } = req.query;
 
     const where: any = { userId };
@@ -31,10 +33,10 @@ router.get("/", auth, async (req, res) => {
 });
 
 // Get single task
-router.get("/:id", auth, async (req, res) => {
+router.get("/:id", requireAuth, async (req, res) => {
   try {
     const task = await db.task.findFirst({
-      where: { id: req.params.id, userId: req.user.id },
+      where: { id: req.params.id, userId: req.locals.userId },
     });
 
     if (!task) return res.status(404).json({ error: "Task not found" });
@@ -45,7 +47,7 @@ router.get("/:id", auth, async (req, res) => {
 });
 
 // Create new task
-router.post("/", auth, async (req, res) => {
+router.post("/", requireAuth, async (req, res) => {
   try {
     const { title, description, dueDate, priority } = req.body;
 
@@ -57,7 +59,7 @@ router.post("/", auth, async (req, res) => {
         description,
         dueDate: dueDate ? new Date(dueDate) : null,
         priority: priority || "medium",
-        userId: req.user.id,
+        userId: req.locals.userId,
       },
     });
 
@@ -68,12 +70,12 @@ router.post("/", auth, async (req, res) => {
 });
 
 // Update task
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", requireAuth, async (req, res) => {
   try {
     const { title, description, status, dueDate, priority } = req.body;
 
     const task = await db.task.findFirst({
-      where: { id: req.params.id, userId: req.user.id },
+      where: { id: req.params.id, userId: req.locals.userId },
     });
 
     if (!task) return res.status(404).json({ error: "Task not found" });
@@ -96,10 +98,10 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 // Delete task
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", requireAuth, async (req, res) => {
   try {
     const task = await db.task.findFirst({
-      where: { id: req.params.id, userId: req.user.id },
+      where: { id: req.params.id, userId: req.locals.userId },
     });
 
     if (!task) return res.status(404).json({ error: "Task not found" });

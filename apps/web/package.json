@@ -19,6 +19,7 @@
     "@repo/feature-user-profiles": "workspace:*",
     "@repo/realtime": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@repo/utils": "workspace:*",
     "@repo/feature-file-sharing": "workspace:*",
     "@repo/feature-payments": "workspace:*",
     "@prisma/client": "catalog:",

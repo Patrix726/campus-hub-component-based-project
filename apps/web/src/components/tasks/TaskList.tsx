@@ -1,6 +1,7 @@
 // apps/web/src/components/TaskList.tsx
 "use client";
 
+import { env } from "@repo/env/web";
 import { useEffect, useState } from "react";
 import {
   Card,
@@ -8,12 +9,12 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@campus-hub/ui/card";
-import { Button } from "@campus-hub/ui/button";
-import { Badge } from "@campus-hub/ui/badge";
+} from "@repo/ui/components/card";
+import { Button } from "@repo/ui/components/button";
+import { Badge } from "@repo/ui/components/badge";
 import CreateTaskModal from "./CreateTaskModal";
 import EditTaskModal from "./EditTaskModal";
-import { formatDate } from "@/lib/utils";
+import { formatDate } from "@repo/utils";
 
 interface Task {
   id: string;
@@ -35,7 +36,7 @@ export default function TaskList() {
   const fetchTasks = async () => {
     try {
       setLoading(true);
-      const url = filter === "all" ? "/api/tasks" : `/api/tasks?status=${filter}`;
+      const url = filter === "all" ? `${env.NEXT_PUBLIC_SERVER_URL}/api/tasks` : `${env.NEXT_PUBLIC_SERVER_URL}/api/tasks?status=${filter}`;
       const response = await fetch(url);
       const data = await response.json();
       setTasks(data);
@@ -52,7 +53,7 @@ export default function TaskList() {
 
   const deleteTask = async (taskId: string) => {
     try {
-      await fetch(`/api/tasks/${taskId}`, { method: "DELETE" });
+      await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/tasks/${taskId}`, { method: "DELETE" });
       setTasks(tasks.filter((t) => t.id !== taskId));
     } catch (error) {
       console.error("Failed to delete task:", error);
@@ -175,9 +176,8 @@ export default function TaskList() {
           task={editingTask}
           onClose={() => setEditingTask(null)}
           onTaskUpdated={(updatedTask) => {
-            setTasks(
-              tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t))
-            );
+            const newTasks: any = tasks.map((t) => (t.id === updatedTask.id ? updatedTask : t))
+            setTasks(newTasks);
             setEditingTask(null);
           }}
         />

@@ -1,6 +1,7 @@
 // apps/web/src/components/SearchBar.tsx
 "use client";
 
+import { env } from "@repo/env/web";
 import { useState, useRef, useEffect } from "react";
 import {
   Card,
@@ -8,16 +9,16 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@campus-hub/ui/card";
-import { Input } from "@campus-hub/ui/input";
-import { Badge } from "@campus-hub/ui/badge";
+} from "@repo/ui/components/card";
+import { Input } from "@repo/ui/components/input";
+import { Badge } from "@repo/ui/components/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@campus-hub/ui/select";
+} from "@repo/ui/components/select";
 
 interface User {
   id: string;
@@ -96,7 +97,7 @@ export default function SearchBar() {
         searchParams.append("type", filterType);
       }
 
-      const response = await fetch(`/api/search?${searchParams}`);
+      const response = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/search?${searchParams}`);
       const data = await response.json();
       setResults(data);
       setShowResults(true);

@@ -15,6 +15,7 @@ model User {
   posts         Post[]
   likes         Like[]
   comments      Comment[]
+  tasks Task[]
 
   @@unique([email])
   @@map("user")
