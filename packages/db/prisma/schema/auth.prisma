@@ -9,9 +9,6 @@ model User {
   sessions      Session[]
   accounts      Account[]
   profile       Profile?
-  posts         Post[]
-  likes         Like[]
-  comments      Comment[]
 
   @@unique([email])
   @@map("user")
