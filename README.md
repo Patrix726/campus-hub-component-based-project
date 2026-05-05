@@ -87,9 +87,9 @@ campus-hub-component-based-project/
 ├── packages/
 │   ├── feature-auth/           # Auth forms, hooks, shared types, server route wrapper
 │   ├── feature-user-profiles/  # Profile CRUD (bio, major, year, avatar)
-│   ├── feature-chat/           # Chat & messaging (see its README)
-│   ├── feature-notifications/  # Notification system (see its README)
-│   ├── realtime/               # WebSocket server & client SDK
+│   ├── feature-chat/           # Chat & messaging. See packages/feature-chat/README.md
+│   ├── feature-notifications/  # Notification system. See packages/feature-notifications/README.md
+│   ├── realtime/               # Shared WebSocket server & client. See packages/realtime/README.md
 │   ├── auth/                   # Better-Auth instance configuration
 │   ├── db/                     # Prisma schema + generated client + adapter
 │   ├── env/                    # Validated environment variables
@@ -211,23 +211,12 @@ Quick summary:
 
 **Purpose:** Single shared WebSocket infrastructure for the entire app.
 
-**Server (`@repo/realtime/server`):**
-- `RealtimeServer` class — wraps `ws.WebSocketServer` on `/ws` path
-- User tracking: `Map<string, Set<WebSocket>>` keyed by `userId` from query param
-- Methods:
-  - `emitToUsers(userIds, event, data)` — broadcast to specific users
-  - `emitToUser(userId, event, data)` — broadcast to single user
-  - `on(event, handler)` — register server-side listener for client-sent events
-  - `isOnline(userId)` — check if user has active WebSocket connection
-- `initRealtimeServer(server)` / `getRealtimeServer()` — singleton pattern
-- `getEventBus()` — in-process `EventEmitter` for server-side cross-feature communication
+**See [packages/realtime/README.md](packages/realtime/README.md) for full documentation.**
 
-**Client (`@repo/realtime/client`):**
-- `RealtimeProvider` — React Context that manages WebSocket connection with auto-reconnect (2s delay)
-- `useRealtime()` — returns `{ subscribe, send, isConnected }`
-- `useRealtimeEvent(event, handler)` — declarative hook for listening to named events
-
-**Event namespacing convention:** `<feature>:<action>` (e.g., `chat:message`, `chat:typing`, `notification:new`).
+Quick summary:
+- **Server:** `RealtimeServer` wraps `ws.WebSocketServer` on `/ws`; user-scoped broadcasting via `emitToUsers`/`emitToUser`; server-side listeners via `on()`; event bus via `getEventBus()` for in-process cross-feature communication
+- **Client:** `RealtimeProvider` React Context with auto-reconnect; `useRealtime()` and `useRealtimeEvent()` hooks for subscribing and sending events
+- **Event namespacing:** `<feature>:<action>` (e.g. `chat:message`, `notification:new`)
 
 ---
 

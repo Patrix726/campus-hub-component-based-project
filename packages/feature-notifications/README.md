@@ -1,6 +1,6 @@
 # `@repo/feature-notifications`
 
-** IMPLEMENTED BY: [@Nahom](https://github.com/nahom-d54) **
+**IMPLEMENTED BY: [@Nahom](https://github.com/nahom-d54)**
 
 Push notification system with real-time delivery. Provides client-side UI components, a notification API, and event bus integration for cross-feature notification creation.
 

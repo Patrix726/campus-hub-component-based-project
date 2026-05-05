@@ -1,6 +1,6 @@
 # `@repo/feature-chat`
 
-** IMPLEMENTED BY: [@Nahom](https://github.com/nahom-d54) **
+**IMPLEMENTED BY: [@Nahom](https://github.com/nahom-d54)**
 
 Real-time chat and messaging feature package. Provides everything needed for 1-to-1 and group conversations: client-side hooks/components, REST API endpoints, and WebSocket integration via `@repo/realtime`.
 
