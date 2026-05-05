@@ -4,13 +4,17 @@ import { GraduationCap } from "lucide-react";
 
 import { ModeToggle } from "./mode-toggle";
 import UserMenu from "./user-menu";
+import { NotificationBellWrapper } from "./notification-bell-wrapper";
 
 export default function Header() {
   const links = [
     { to: "/", label: "Home" },
     { to: "/dashboard", label: "Dashboard" },
     { to: "/events", label: "Events" },
+    { to: "/chat", label: "Chat" },
     { to: "/profile", label: "Profile" },
+    { to: "/files", label: "Files" },
+    { to: "/payments", label: "Payments" },
   ] as const;
 
   return (
@@ -28,6 +32,7 @@ export default function Header() {
             {links.map(({ to, label }) => (
               <Link
                 key={to}
+                // @ts-expect-error some links aren't existing
                 href={to}
                 className="text-gray-700 hover:text-amber-600 font-medium transition-colors duration-200 hover:scale-105 transform"
               >
@@ -38,6 +43,7 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center space-x-3">
+            <NotificationBellWrapper />
             <ModeToggle />
             <UserMenu />
           </div>

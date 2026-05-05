@@ -15,6 +15,20 @@ export function createAuth() {
     emailAndPassword: {
       enabled: true,
     },
+    databaseHooks: {
+      user: {
+        create: {
+          after: async (user) => { 
+            await prisma.profile.create({
+              data: {
+                userId: user.id,
+              }
+            })
+          }
+        }
+      }
+
+    },
     secret: env.BETTER_AUTH_SECRET,
     baseURL: env.BETTER_AUTH_URL,
     advanced: {
