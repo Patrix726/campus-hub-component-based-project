@@ -1,5 +1,6 @@
 "use client";
 
+import { env } from "@repo/env/web";
 import { useState, useEffect, useCallback } from "react";
 import { useRealtimeEvent, useRealtime } from "@repo/realtime/client";
 import type { ChatMessage, ChatMessageEvent, ChatTypingEvent } from "../shared";
@@ -16,7 +17,7 @@ export function useMessages(chatId: string, userId: string) {
     try {
       setLoading(true);
       const res = await fetch(
-        `/api/chat/${chatId}/messages?userId=${encodeURIComponent(userId)}`,
+        `${env.NEXT_PUBLIC_SERVER_URL}/api/chat/${chatId}/messages?userId=${encodeURIComponent(userId)}`,
       );
       if (!res.ok) throw new Error("Failed to fetch messages");
       const data = await res.json();
@@ -82,7 +83,7 @@ export function useMessages(chatId: string, userId: string) {
 
   const sendMessage = async (content: string) => {
     const res = await fetch(
-      `/api/chat/${chatId}/messages?userId=${encodeURIComponent(userId)}`,
+      `${env.NEXT_PUBLIC_SERVER_URL}/api/chat/${chatId}/messages?userId=${encodeURIComponent(userId)}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

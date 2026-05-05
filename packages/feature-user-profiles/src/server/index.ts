@@ -24,6 +24,7 @@ router.get("/api/profiles/:userId", async (req, res) => {
     }
     res.json(profile);
   } catch (error) {
+    console.log("error", error)
     res.status(500).json({ error: "Internal server error" });
   }
 });

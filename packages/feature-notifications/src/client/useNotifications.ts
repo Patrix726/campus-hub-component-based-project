@@ -1,8 +1,8 @@
 "use client";
-
 import { useState, useEffect, useCallback } from "react";
 import { useRealtimeEvent } from "@repo/realtime/client";
 import type { Notification } from "../shared";
+import { env } from "@repo/env/web";
 
 export function useNotifications(userId: string) {
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -15,7 +15,7 @@ export function useNotifications(userId: string) {
     try {
       setLoading(true);
       const res = await fetch(
-        `/api/notifications?userId=${encodeURIComponent(userId)}`,
+        `${env.NEXT_PUBLIC_SERVER_URL}/api/notifications?userId=${encodeURIComponent(userId)}`,
       );
       if (!res.ok) throw new Error("Failed to fetch notifications");
       const data = await res.json();
@@ -50,7 +50,7 @@ export function useNotifications(userId: string) {
 
   const markAsRead = async (notificationId: string) => {
     const res = await fetch(
-      `/api/notifications/${notificationId}/read?userId=${encodeURIComponent(userId)}`,
+      `${env.NEXT_PUBLIC_SERVER_URL}/api/notifications/${notificationId}/read?userId=${encodeURIComponent(userId)}`,
       { method: "PATCH" },
     );
     if (!res.ok) throw new Error("Failed to mark as read");

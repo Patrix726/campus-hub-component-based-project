@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { env } from "@repo/env/web";
 import type { Profile, UpdateProfileInput } from "../shared";
 
 export function useProfile(userId: string) {
@@ -8,7 +9,7 @@ export function useProfile(userId: string) {
 
   const fetchProfile = async () => {
     try {
-      const res = await fetch(`/api/profiles/${userId}`);
+      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/profiles/${userId}`);
       if (!res.ok) throw new Error("Failed to fetch profile");
       const data = await res.json();
       setProfile(data);
@@ -21,7 +22,7 @@ export function useProfile(userId: string) {
 
   const updateProfile = async (data: UpdateProfileInput) => {
     try {
-      const res = await fetch(`/api/profiles/${userId}`, {
+      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/profiles/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

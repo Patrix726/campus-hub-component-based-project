@@ -10,18 +10,18 @@ import { env } from "@repo/env/web";
  */
 export function RealtimeWrapper({ children }: { children: React.ReactNode }) {
   const { data: session } = authClient.useSession();
-
-  if (!session?.user) {
-    // Not authenticated — render children without realtime
-    return <>{children}</>;
-  }
-
+  //
+  // if (!session?.user) {
+  //   // Not authenticated — render children without realtime
+  //   return <>{children}</>;
+  // }
+  //
   // Derive WS URL from server URL
   const serverUrl = env.NEXT_PUBLIC_SERVER_URL;
   const wsUrl = serverUrl.replace(/^http/, "ws").replace(/\/$/, "") + "/ws";
 
   return (
-    <RealtimeProvider url={wsUrl} userId={session.user.id}>
+    <RealtimeProvider url={wsUrl} userId={session?.user?.id as string}>
       {children}
     </RealtimeProvider>
   );

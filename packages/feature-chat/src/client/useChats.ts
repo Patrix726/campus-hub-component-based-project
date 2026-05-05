@@ -1,5 +1,6 @@
 "use client";
 
+import { env } from "@repo/env/web";
 import { useState, useEffect, useCallback } from "react";
 import { useRealtimeEvent } from "@repo/realtime/client";
 import type { Chat, ChatMessageEvent } from "../shared";
@@ -12,7 +13,7 @@ export function useChats(userId: string) {
   const fetchChats = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/chat?userId=${encodeURIComponent(userId)}`);
+      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/chat?userId=${encodeURIComponent(userId)}`);
       if (!res.ok) throw new Error("Failed to fetch chats");
       const data = await res.json();
       setChats(data);
@@ -57,7 +58,7 @@ export function useChats(userId: string) {
   );
 
   const createChat = async (participantIds: string[], name?: string, isGroup = false) => {
-    const res = await fetch(`/api/chat?userId=${encodeURIComponent(userId)}`, {
+    const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/chat?userId=${encodeURIComponent(userId)}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ participantIds, name, isGroup }),
