@@ -1,5 +1,6 @@
 "use client";
 
+import { env } from "@repo/env/web";
 import { authClient } from "@/lib/auth-client";
 import { useFeed } from "@repo/feature-posts/client";
 import { Button } from "@repo/ui/components/button";
@@ -39,7 +40,7 @@ export default function FeedClient({ session }: FeedClientProps) {
         body.imageUrl = imageUrl.trim();
       }
 
-      const res = await fetch("/api/posts", {
+      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/posts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

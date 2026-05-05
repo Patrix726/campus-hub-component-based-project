@@ -5,6 +5,12 @@
   "exports": {
     ".": {
       "default": "./src/index.ts"
+    },
+    "./server": {
+      "default": "./src/server.ts"
+    },
+    "./client": {
+      "default": "./src/client.tsx"
     }
   },
   "scripts": {
@@ -14,12 +20,14 @@
   "dependencies": {
     "@repo/feature-posts": "workspace:*",
     "@repo/feature-comments": "workspace:*",
-    "ws": "^8.18.2"
+    "ws": "^8.18.2",
+    "react": "catalog:"
   },
   "devDependencies": {
     "@repo/config": "workspace:*",
     "@types/node": "^22.13.14",
     "@types/ws": "^8.5.14",
+    "@types/react": "catalog:",
     "typescript": "catalog:",
     "vitest": "^3.2.3",
     "fast-check": "^3.23.2"

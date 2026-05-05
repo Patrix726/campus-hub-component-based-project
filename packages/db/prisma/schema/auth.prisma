@@ -9,6 +9,12 @@ model User {
   sessions      Session[]
   accounts      Account[]
   profile       Profile?
+  chatParticipants ChatParticipant[]
+  messages         Message[]
+  notifications    Notification[]
+  posts         Post[]
+  likes         Like[]
+  comments      Comment[]
 
   @@unique([email])
   @@map("user")

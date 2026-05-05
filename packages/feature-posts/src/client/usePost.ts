@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { env } from "@repo/env/web";
 import type { FeedPost } from "../shared";
 
 export function usePost(postId: string) {
@@ -13,7 +14,7 @@ export function usePost(postId: string) {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`/api/posts/${postId}`);
+        const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/posts/${postId}`);
         if (!res.ok) throw new Error("Failed to fetch post");
         const data = await res.json();
         if (!cancelled) setPost(data);

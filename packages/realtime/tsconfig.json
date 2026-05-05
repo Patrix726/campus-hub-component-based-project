@@ -6,7 +6,9 @@
     "sourceMap": true,
     "outDir": "dist",
     "composite": true,
-    "types": ["node"]
+    "jsx": "react-jsx",
+    "lib": ["ESNext", "DOM"],
+    "types": ["node", "@types/react"]
   },
   "include": ["src"]
 }

@@ -11,7 +11,15 @@
   },
   "dependencies": {
     "@repo/feature-auth": "workspace:*",
+    "@repo/feature-file-sharing": "workspace:*",
+    "@repo/feature-payments": "workspace:*",
     "@repo/feature-user-profiles": "workspace:*",
+    "@repo/feature-chat": "workspace:*",
+    "@repo/feature-notifications": "workspace:*",
+    "@repo/realtime": "workspace:*",
+    "@repo/feature-posts": "workspace:*",
+    "@repo/feature-comments": "workspace:*",
+    "@repo/realtime": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/env": "workspace:*",
@@ -22,7 +30,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@repo/config": "workspace:*",
+    "@repo/config":  "workspace:*",
     "@types/cors": "^2.8.17",
     "@types/express": "catalog:",
     "@types/node": "^22.13.14",

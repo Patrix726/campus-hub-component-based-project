@@ -1,0 +1,36 @@
+{
+  "name": "@repo/feature-file-sharing",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "default": "./src/client/index.ts"
+    },
+    "./server": {
+      "default": "./src/server/index.ts"
+    },
+    "./shared": {
+      "default": "./src/shared/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@repo/db": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "express": "catalog:",
+    "multer": "^1.4.5-lts.2",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "@types/express": "catalog:",
+    "@types/multer": "^1.4.12",
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
+  }
+}

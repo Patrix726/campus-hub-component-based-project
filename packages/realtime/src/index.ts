@@ -38,3 +38,6 @@ export function attachRealtime(server: Server): void {
     broadcast("comment:new", payload);
   });
 }
+
+export * from "./client";
+export * from "./server";

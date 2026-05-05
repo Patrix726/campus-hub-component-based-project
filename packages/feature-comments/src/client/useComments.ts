@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { env } from "@repo/env/web";
 import type { Comment } from "../shared";
 
 export function useComments(postId: string) {
@@ -10,7 +11,7 @@ export function useComments(postId: string) {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/posts/${postId}/comments`);
+      const res = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/posts/${postId}/comments`);
       if (!res.ok) throw new Error("Failed to fetch comments");
       const data = await res.json();
       setComments(data);
