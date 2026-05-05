@@ -1,6 +1,7 @@
 // apps/web/src/components/EditTaskModal.tsx
 "use client";
 
+import { env } from "@repo/env/web";
 import { useState } from "react";
 import {
   Dialog,
@@ -8,17 +9,17 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@campus-hub/ui/dialog";
-import { Button } from "@campus-hub/ui/button";
-import { Input } from "@campus-hub/ui/input";
-import { Label } from "@campus-hub/ui/label";
+} from "@repo/ui/components/dialog";
+import { Button } from "@repo/ui/components/button";
+import { Input } from "@repo/ui/components/input";
+import { Label } from "@repo/ui/components/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@campus-hub/ui/select";
+} from "@repo/ui/components/select";
 
 interface Task {
   id: string;
@@ -62,7 +63,7 @@ export default function EditTaskModal({
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await fetch(`/api/tasks/${task.id}`, {
+      const response = await fetch(`${env.NEXT_PUBLIC_SERVER_URL}/api/tasks/${task.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -118,7 +119,7 @@ export default function EditTaskModal({
             <div className="space-y-2">
               <Label htmlFor="status">Status</Label>
               <Select value={formData.status} onValueChange={(value) =>
-                setFormData((prev) => ({ ...prev, status: value }))
+                value && setFormData((prev) => ({ ...prev, status: value }))
               }>
                 <SelectTrigger>
                   <SelectValue />
@@ -134,7 +135,7 @@ export default function EditTaskModal({
             <div className="space-y-2">
               <Label htmlFor="priority">Priority</Label>
               <Select value={formData.priority} onValueChange={(value) =>
-                setFormData((prev) => ({ ...prev, priority: value }))
+                value && setFormData((prev) => ({ ...prev, priority: value }))
               }>
                 <SelectTrigger>
                   <SelectValue />

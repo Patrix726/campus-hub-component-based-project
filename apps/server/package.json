@@ -14,6 +14,7 @@
     "@repo/feature-file-sharing": "workspace:*",
     "@repo/feature-payments": "workspace:*",
     "@repo/feature-user-profiles": "workspace:*",
+    "@repo/feature-events": "workspace:*",
     "@repo/feature-chat": "workspace:*",
     "@repo/feature-notifications": "workspace:*",
     "@repo/realtime": "workspace:*",

@@ -1,8 +1,9 @@
 // apps/server/src/routes/search.ts
 import { Router } from "express";
-import { db } from "@campus-hub/db";
+import { createPrismaClient } from "@repo/db";
 
 const router = Router();
+const db = createPrismaClient()
 
 // Global search across users, posts, and tasks
 router.get("/", async (req, res) => {
