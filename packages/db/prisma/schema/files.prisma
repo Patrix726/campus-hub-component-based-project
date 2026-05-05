@@ -1,0 +1,11 @@
+model File {
+  id        String   @id @default(uuid())
+  name      String
+  url       String
+  size      Int
+  mimeType  String
+  ownerId   String
+  createdAt DateTime @default(now())
+
+  @@map("file")
+}

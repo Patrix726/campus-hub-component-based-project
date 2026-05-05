@@ -1,0 +1,9 @@
+model Payment {
+  id        String   @id @default(uuid())
+  userId    String
+  amount    Float
+  status    String   // "success" | "failed"
+  createdAt DateTime @default(now())
+
+  @@map("payment")
+}

@@ -10,6 +10,8 @@ import {
   registerNotificationListeners,
 } from "@repo/feature-notifications/server";
 import { postRoutes } from "@repo/feature-posts/server";
+import { fileRoutes } from "@repo/feature-file-sharing/server";
+import { paymentRoutes } from "@repo/feature-payments/server";
 import { profileRoutes } from "@repo/feature-user-profiles/server";
 import { initRealtimeServer } from "@repo/realtime/server";
 import { toNodeHandler } from "better-auth/node";
@@ -17,8 +19,13 @@ import cors from "cors";
 import express from "express";
 import { createServer } from "http";
 import { requireAuth } from "./middleware/auth";
+import { mkdirSync } from "fs";
 
 const app = express();
+
+// Ensure uploads directory exists
+mkdirSync("uploads", { recursive: true });
+app.use("/uploads", express.static("uploads"));
 
 app.use(
   cors({
@@ -39,6 +46,8 @@ app.use(profileRoutes);
 app.use(chatRoutes);
 app.use(notificationRoutes);
 app.use(profileRoutes);
+app.use(fileRoutes);
+app.use(paymentRoutes);
 
 // Apply requireAuth middleware to all mutating routes before the feature routers handle them
 app.post("/api/posts", requireAuth);
