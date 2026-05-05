@@ -1,27 +1,28 @@
 {
   "name": "@repo/realtime",
   "type": "module",
-  "main": "./src/index.ts",
   "exports": {
     ".": {
       "default": "./src/index.ts"
+    },
+    "./server": {
+      "default": "./src/server.ts"
+    },
+    "./client": {
+      "default": "./src/client.tsx"
     }
   },
   "scripts": {
-    "build": "tsc -b",
-    "test": "vitest run"
+    "build": "tsc -b"
   },
   "dependencies": {
-    "@repo/feature-posts": "workspace:*",
-    "@repo/feature-comments": "workspace:*",
-    "ws": "^8.18.2"
+    "ws": "^8.18.0",
+    "react": "catalog:"
   },
   "devDependencies": {
     "@repo/config": "workspace:*",
-    "@types/node": "^22.13.14",
-    "@types/ws": "^8.5.14",
-    "typescript": "catalog:",
-    "vitest": "^3.2.3",
-    "fast-check": "^3.23.2"
+    "@types/ws": "^8.18.0",
+    "@types/react": "catalog:",
+    "typescript": "catalog:"
   }
 }

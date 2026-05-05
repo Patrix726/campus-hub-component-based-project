@@ -16,6 +16,7 @@
     "db:studio": "turbo -F @repo/db db:studio",
     "db:generate": "turbo -F @repo/db db:generate",
     "db:migrate": "turbo -F @repo/db db:migrate",
+    "db:reset": "turbo -F @repo/db db:reset",
     "db:local": "turbo -F @repo/db db:local"
   },
   "dependencies": {
