@@ -5,21 +5,21 @@ import {
   registerChatRealtimeHandlers,
 } from "@repo/feature-chat/server";
 import { commentRoutes } from "@repo/feature-comments/server";
+import { fileRoutes } from "@repo/feature-file-sharing/server";
 import {
   notificationRoutes,
   registerNotificationListeners,
 } from "@repo/feature-notifications/server";
-import { postRoutes } from "@repo/feature-posts/server";
-import { fileRoutes } from "@repo/feature-file-sharing/server";
 import { paymentRoutes } from "@repo/feature-payments/server";
+import { postRoutes } from "@repo/feature-posts/server";
 import { profileRoutes } from "@repo/feature-user-profiles/server";
 import { initRealtimeServer } from "@repo/realtime/server";
 import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
 import express from "express";
+import { mkdirSync } from "fs";
 import { createServer } from "http";
 import { requireAuth } from "./middleware/auth";
-import { mkdirSync } from "fs";
 
 const app = express();
 
@@ -36,16 +36,15 @@ app.use(
   }),
 );
 
-app.all("/api/auth{/*path}", toNodeHandler(auth));
-
-// Body parsing
+// Parse JSON bodies before any route handlers run
 app.use(express.json());
+
+app.all("/api/auth{/*path}", toNodeHandler(auth));
 
 // Feature routes
 app.use(profileRoutes);
 app.use(chatRoutes);
 app.use(notificationRoutes);
-app.use(profileRoutes);
 app.use(fileRoutes);
 app.use(paymentRoutes);
 

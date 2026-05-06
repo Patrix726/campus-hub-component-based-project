@@ -1,6 +1,7 @@
 {
   "name": "@repo/realtime",
   "type": "module",
+  "main": "./src/index.ts",
   "exports": {
     ".": {
       "default": "./src/index.ts"
@@ -13,16 +14,22 @@
     }
   },
   "scripts": {
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "test": "vitest run"
   },
   "dependencies": {
-    "ws": "^8.18.0",
+    "@repo/feature-posts": "workspace:*",
+    "@repo/feature-comments": "workspace:*",
+    "ws": "^8.18.2",
     "react": "catalog:"
   },
   "devDependencies": {
     "@repo/config": "workspace:*",
-    "@types/ws": "^8.18.0",
+    "@types/node": "^22.13.14",
+    "@types/ws": "^8.5.14",
     "@types/react": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "^3.2.3",
+    "fast-check": "^3.23.2"
   }
 }

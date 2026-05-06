@@ -1,16 +1,16 @@
 "use client";
-import Link from "next/link";
 import { GraduationCap } from "lucide-react";
+import Link from "next/link";
 
 import { ModeToggle } from "./mode-toggle";
-import UserMenu from "./user-menu";
 import { NotificationBellWrapper } from "./notification-bell-wrapper";
+import UserMenu from "./user-menu";
 
 export default function Header() {
   const links = [
     { to: "/", label: "Home" },
     { to: "/dashboard", label: "Dashboard" },
-    { to: "/events", label: "Events" },
+    // { to: "/events", label: "Events" },
     { to: "/chat", label: "Chat" },
     { to: "/profile", label: "Profile" },
     { to: "/files", label: "Files" },
@@ -22,7 +22,10 @@ export default function Header() {
       <div className="container mx-auto px-4 py-3">
         <div className="flex flex-row items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+          <Link
+            href="/"
+            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+          >
             <GraduationCap className="h-8 w-8 text-amber-600" />
             <span className="text-xl font-bold text-gray-900">CampusHub</span>
           </Link>
