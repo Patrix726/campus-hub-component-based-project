@@ -9,8 +9,8 @@ model User {
   sessions      Session[]
   accounts      Account[]
   profile       Profile?
-  events        Event[]
-  eventRsvps    EventRsvp[]
+  // events        Event[]
+  // eventRsvps    EventRsvp[]
   chatParticipants ChatParticipant[]
   messages         Message[]
   notifications    Notification[]
