@@ -11,12 +11,22 @@ import {
 import { Skeleton } from "@repo/ui/components/skeleton";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { authClient } from "@/lib/auth-client";
 
 export default function UserMenu() {
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
   const { data: session, isPending } = authClient.useSession();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <Skeleton className="h-9 w-24" />;
+  }
 
   if (isPending) {
     return <Skeleton className="h-9 w-24" />;

@@ -1,0 +1,35 @@
+{
+  "name": "@repo/feature-events",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./client": {
+      "default": "./src/client/index.ts"
+    },
+    "./server": {
+      "default": "./src/server/index.ts"
+    },
+    "./shared": {
+      "default": "./src/shared/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@repo/db": "workspace:*",
+    "@repo/env": "workspace:*",
+    "express": "catalog:",
+    "react": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "@types/react": "catalog:",
+    "@types/express": "catalog:",
+    "typescript": "catalog:"
+  }
+}

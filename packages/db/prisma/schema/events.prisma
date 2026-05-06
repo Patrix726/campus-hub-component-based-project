@@ -1,0 +1,38 @@
+enum RsvpStatus {
+  GOING
+  INTERESTED
+  DECLINED
+}
+
+model Event {
+  id          String      @id @default(cuid())
+  title       String
+  description String?
+  location    String?
+  startAt     DateTime
+  endAt       DateTime?
+  capacity    Int?
+  organizerId String
+  organizer   User        @relation(fields: [organizerId], references: [id], onDelete: Cascade)
+  rsvps       EventRsvp[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  @@index([organizerId])
+  @@map("event")
+}
+
+model EventRsvp {
+  id        String     @id @default(cuid())
+  eventId   String
+  userId    String
+  status    RsvpStatus @default(GOING)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  event     Event      @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+  @@index([userId])
+  @@map("event_rsvp")
+}
