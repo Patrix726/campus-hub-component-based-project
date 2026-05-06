@@ -1,24 +1,24 @@
 import { auth } from "@repo/auth";
 import { env } from "@repo/env/server";
-import { commentRoutes } from "@repo/feature-comments/server";
 import {
   chatRoutes,
   registerChatRealtimeHandlers,
 } from "@repo/feature-chat/server";
+import { commentRoutes } from "@repo/feature-comments/server";
+import { fileRoutes } from "@repo/feature-file-sharing/server";
 import {
   notificationRoutes,
   registerNotificationListeners,
 } from "@repo/feature-notifications/server";
-import { postRoutes } from "@repo/feature-posts/server";
-import { fileRoutes } from "@repo/feature-file-sharing/server";
 import { paymentRoutes } from "@repo/feature-payments/server";
+import { postRoutes } from "@repo/feature-posts/server";
 import { profileRoutes } from "@repo/feature-user-profiles/server";
 import { initRealtimeServer } from "@repo/realtime/server";
 import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
 import express from "express";
-import { createServer } from "http";
 import { mkdirSync } from "fs";
+import { createServer } from "http";
 import { requireAuth } from "./middleware/auth";
 
 const app = express();
@@ -73,7 +73,7 @@ initRealtimeServer(server);
 registerChatRealtimeHandlers();
 registerNotificationListeners();
 
-server.listen(3001, () => {
-  console.log("Server is running on http://localhost:3001");
-  console.log("WebSocket available at ws://localhost:3001/ws");
+server.listen(3000, () => {
+  console.log("Server is running on http://localhost:3000");
+  console.log("WebSocket available at ws://localhost:3000/ws");
 });
